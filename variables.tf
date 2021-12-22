@@ -1,14 +1,14 @@
 # Input variable definitions
 variable "vpc_name" {
-  description = "Snake of VPC"
+  description = "VPC"
   type        = string
-  default     = "snake-vpc"
+  default     = "desafio-vpc"
 }
 
 variable "vpc_cidr" {
   description = "CIDR block for VPC"
   type        = string
-  default     = "10.200.0.0/16"
+  default     = "10.100.0.0/16"
 }
 
 variable "vpc_azs" {
@@ -20,7 +20,7 @@ variable "vpc_azs" {
 variable "vpc_public_subnets" {
   description = "Public subnets for VPC"
   type        = list(string)
-  default     = ["10.0.0.0/24", "10.0.1.0/24"]
+  default     = ["10.100.1.0/24", "10.100.2.0/24"]
 }
 
 variable "vpc_enable_nat_gateway" {

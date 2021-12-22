@@ -12,29 +12,29 @@ module "vpc" {
   tags = var.vpc_tags
 }
 
-  # Create Internet Gateway
-  resource "aws_internet_gateway" "desafio_gw" {
-    vpc_id = module.vpc.vpc_id
-    tags = {
-      Name = "desafio_gw"
-    }
-  }
+#   # Create Internet Gateway
+#   resource "aws_internet_gateway" "desafio_gw" {
+#     vpc_id = module.vpc.vpc_id
+#     tags = {
+#       Name = "desafio_gw"
+#     }
+#   }
 
-# Create Route table
-resource "aws_route_table" "desafio_rt" {
-  vpc_id = module.vpc.vpc_id
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.desafio_gw.id
-  }
-  tags = {
-    Name = "desafio-rt-public"
-  }
-}
-resource "aws_route_table_association" "a" {
-  subnet_id      = module.vpc.public_subnets[0]
-  route_table_id = aws_route_table.desafio_rt.id
-}
+# # Create Route table
+# resource "aws_route_table" "desafio_rt" {
+#   vpc_id = module.vpc.vpc_id
+#   route {
+#     cidr_block = "0.0.0.0/0"
+#     gateway_id = aws_internet_gateway.desafio_gw.id
+#   }
+#   tags = {
+#     Name = "desafio-rt-public"
+#   }
+# }
+# resource "aws_route_table_association" "a" {
+#   subnet_id      = module.vpc.public_subnets[0]
+#   route_table_id = aws_route_table.desafio_rt.id
+# }
 
 
 resource "aws_security_group" "desafio_sg" {
